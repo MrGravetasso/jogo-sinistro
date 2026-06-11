@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c076p2o6nd55g"]
+
+[ext_resource type="Script" uid="uid://d1j8aferodwhv" path="res://scripts/camera.gd" id="1_6p5s1"]
+
+[node name="Camera" type="Camera2D"]
+position = Vector2(0, 104)
+limit_left = 0
+limit_bottom = 208
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("1_6p5s1")
+
+[node name="Altura_de_Salto" type="Node2D" parent="."]
+position = Vector2(189, -80)

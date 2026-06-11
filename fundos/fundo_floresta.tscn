@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://daiigjj51f8w3"]
+
+[ext_resource type="Texture2D" uid="uid://750u651g2aan" path="res://imagens/fundos/2 - Autumn Forest/Background parts/6 - Distant_trees.png" id="3_43m1v"]
+[ext_resource type="Texture2D" uid="uid://brr8e3e3bc1a2" path="res://imagens/fundos/2 - Autumn Forest/Background parts/5 - Tree_row_BG_2.png" id="4_x0fxp"]
+[ext_resource type="Texture2D" uid="uid://b0yx61q5bn28m" path="res://imagens/fundos/2 - Autumn Forest/Background parts/4 - Tree_row_BG_1.png" id="5_eg8yq"]
+[ext_resource type="Texture2D" uid="uid://dptcmlccquu8m" path="res://imagens/fundos/2 - Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="6_ug786"]
+[ext_resource type="Texture2D" uid="uid://d1a875cayi52u" path="res://imagens/fundos/2 - Autumn Forest/Background parts/2 - Trees.png" id="7_4berm"]
+[ext_resource type="Texture2D" uid="uid://bpca337dvibjy" path="res://imagens/fundos/2 - Autumn Forest/Background parts/1 - Leaf_top.png" id="8_emegl"]
+
+[node name="fundo_floresta" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="6" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/6"]
+texture = ExtResource("3_43m1v")
+centered = false
+
+[node name="5" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(1.2, 1.2)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
+texture = ExtResource("4_x0fxp")
+centered = false
+
+[node name="4" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(1.3, 1.3)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
+texture = ExtResource("5_eg8yq")
+centered = false
+
+[node name="3" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(1.4, 1.4)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3"]
+texture = ExtResource("6_ug786")
+centered = false
+
+[node name="2" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(1.5, 1.5)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/2"]
+texture = ExtResource("7_4berm")
+centered = false
+
+[node name="1" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(2.2, 2.2)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/1"]
+texture = ExtResource("8_emegl")
+centered = false

@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddvqwftlhpchx"]
+
+[ext_resource type="Script" uid="uid://c1nqithb32avm" path="res://scripts/predra_rachadinha.gd" id="1_37axr"]
+[ext_resource type="Texture2D" uid="uid://dghppv6b3foi1" path="res://imagens/fundos/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_iq0f7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gy5f"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11ord"]
+atlas = ExtResource("1_iq0f7")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1xq4"]
+atlas = ExtResource("1_iq0f7")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxk25"]
+atlas = ExtResource("1_iq0f7")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhca7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11ord")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1xq4")
+}],
+"loop": true,
+"name": &"pó",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxk25")
+}],
+"loop": true,
+"name": &"rachado",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37axr"]
+size = Vector2(16, 2)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_mask = 2
+script = ExtResource("1_37axr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0gy5f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uhca7")
+animation = &"parado"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_37axr")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

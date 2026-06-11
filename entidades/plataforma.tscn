@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cijc7se81tpg7"]
+
+[ext_resource type="Script" uid="uid://ccibbbb1w5lpq" path="res://scripts/plataforma.gd" id="1_oen1g"]
+[ext_resource type="Texture2D" uid="uid://dghppv6b3foi1" path="res://imagens/fundos/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_x7ss6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oen1g"]
+size = Vector2(32, 16)
+
+[node name="plataforma" type="AnimatableBody2D"]
+collision_mask = 2
+script = ExtResource("1_oen1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x7ss6")
+region_enabled = true
+region_rect = Rect2(96, 64, 32, 16)
+
+[node name="Posição_Final" type="Sprite2D" parent="."]
+texture = ExtResource("1_x7ss6")
+region_enabled = true
+region_rect = Rect2(96, 64, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oen1g")

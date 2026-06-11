@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2sj6026skctv"]
+
+[ext_resource type="Texture2D" uid="uid://cnhuuvas8k737" path="res://imagens/fundos/3 - Tropics/Background parts/5 - Sky_color.png" id="1_q1q2c"]
+[ext_resource type="Texture2D" uid="uid://dl1bpw8721idv" path="res://imagens/fundos/3 - Tropics/Background parts/4 - Background_clouds.png" id="2_csynu"]
+[ext_resource type="Texture2D" uid="uid://bkccliaqc3bja" path="res://imagens/fundos/3 - Tropics/Background parts/3 - Floating_clouds.png" id="3_5lofv"]
+[ext_resource type="Texture2D" uid="uid://qt3hf0r4ul5f" path="res://imagens/fundos/3 - Tropics/Background parts/1 - Waters_version_1.png" id="4_f7f4e"]
+[ext_resource type="Texture2D" uid="uid://bw4loatsllqc8" path="res://imagens/fundos/3 - Tropics/Background parts/2 - Waters_version_2.png" id="5_d4pn6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ik5ty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f7f4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d4pn6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CéuDaPraia" type="Node2D"]
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="5" type="Parallax2D" parent="ParallaxBackground2"]
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/5"]
+texture = ExtResource("1_q1q2c")
+centered = false
+
+[node name="4" type="Parallax2D" parent="ParallaxBackground2"]
+scroll_scale = Vector2(1.1, 1.05)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/4"]
+texture = ExtResource("2_csynu")
+centered = false
+
+[node name="3" type="Parallax2D" parent="ParallaxBackground2"]
+scroll_scale = Vector2(1.15, 1.075)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/3"]
+texture = ExtResource("3_5lofv")
+centered = false
+
+[node name="1" type="Parallax2D" parent="ParallaxBackground2"]
+scroll_scale = Vector2(1.3, 1.15)
+repeat_size = Vector2(288, 0)
+repeat_times = 1000
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground2/1"]
+sprite_frames = SubResource("SpriteFrames_ik5ty")
+autoplay = "default"
+centered = false

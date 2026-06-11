@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6t8mi8gifnih"]
+
+[ext_resource type="Script" uid="uid://cnsip1ltb0qia" path="res://scripts/fim.gd" id="1_odr2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsom8"]
+
+[node name="fim" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_odr2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nsom8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

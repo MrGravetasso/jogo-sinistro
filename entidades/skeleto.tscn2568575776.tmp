@@ -1,0 +1,145 @@
+[gd_scene load_steps=20 format=3 uid="uid://b6k0ndoyonqk"]
+
+[ext_resource type="Script" uid="uid://1j01ilv5gcnx" path="res://scripts/skeleto.gd" id="1_okkce"]
+[ext_resource type="Texture2D" uid="uid://d02imc8lajecr" path="res://imagens/mais bixo/3 - Skeleton/Limping_Movement (32 x 32).png" id="2_3d1wt"]
+[ext_resource type="Texture2D" uid="uid://dd4btvs5qfw78" path="res://imagens/mais bixo/3 - Skeleton/Crumbling_Into_Bone_Pile (32 x 32).png" id="3_ycllg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okkce"]
+size = Vector2(14, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arbyk"]
+atlas = ExtResource("2_3d1wt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoty6"]
+atlas = ExtResource("2_3d1wt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87vpo"]
+atlas = ExtResource("2_3d1wt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vhlw"]
+atlas = ExtResource("2_3d1wt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m5n2"]
+atlas = ExtResource("2_3d1wt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8rn5"]
+atlas = ExtResource("2_3d1wt")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4co7b"]
+atlas = ExtResource("3_ycllg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yuqn"]
+atlas = ExtResource("3_ycllg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5sba"]
+atlas = ExtResource("3_ycllg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tu83"]
+atlas = ExtResource("3_ycllg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04102"]
+atlas = ExtResource("3_ycllg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mun5h"]
+atlas = ExtResource("3_ycllg")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7gqp"]
+atlas = ExtResource("3_ycllg")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3d1wt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arbyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoty6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87vpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vhlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0m5n2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8rn5")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4co7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yuqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5sba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tu83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04102")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mun5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7gqp")
+}],
+"loop": false,
+"name": &"morreu",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3d1wt"]
+size = Vector2(12.754111, 26)
+
+[node name="bixin" type="CharacterBody2D"]
+scale = Vector2(1.0517213, 1.0489997)
+collision_layer = 4
+script = ExtResource("1_okkce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_okkce")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3d1wt")
+animation = &"andando"
+frame_progress = 0.0033512674
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1.6229446, 3)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_3d1wt")
+debug_color = Color(0.9999998, 0.0138945775, 0.039023835, 0.41960785)
+
+[node name="olhar_frente" type="RayCast2D" parent="."]
+position = Vector2(0, 11.43947)
+target_position = Vector2(15.213157, -9.536743e-07)
+
+[node name="olhar_chão" type="RayCast2D" parent="."]
+position = Vector2(11.409866, 0)
+target_position = Vector2(0, 20.019073)

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8k8xu5cm12c"]
+
+[ext_resource type="Script" uid="uid://chu40l52bmpa0" path="res://scripts/osso_girando.gd" id="1_5jb65"]
+[ext_resource type="Texture2D" uid="uid://cg28tf3424jhf" path="res://imagens/mais bixo/3 - Skeleton/Spinning_Bone (16 x 16).png" id="1_8wuo6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5jb65"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_livdp"]
+atlas = ExtResource("1_8wuo6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkffw"]
+atlas = ExtResource("1_8wuo6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vix7k"]
+atlas = ExtResource("1_8wuo6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdkhd"]
+atlas = ExtResource("1_8wuo6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qocy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_livdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkffw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vix7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdkhd")
+}],
+"loop": true,
+"name": &"osso girando",
+"speed": 18.0
+}]
+
+[node name="Osso_Girando" type="Area2D" groups=["bagui q da dano"]]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_5jb65")
+
+[node name="hitbox" type="CollisionShape2D" parent="." groups=["bagui q da dano"]]
+shape = SubResource("CircleShape2D_5jb65")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0qocy")
+animation = &"osso girando"
+autoplay = "osso girando"
+frame_progress = 0.31007564
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
