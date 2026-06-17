@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"63171fb1b64c0e28","type":"text","text":"Quantos Chefes: 15","x":-511,"y":-300,"width":331,"height":60},
+		{"id":"bd762ea576bbea86","type":"text","text":"Quantas Áreas: 5","x":-511,"y":-220,"width":331,"height":60},
+		{"id":"091a7d51631d05c0","type":"text","text":"Período de Desenvolvimento: 6 meses","x":-511,"y":-140,"width":331,"height":60},
+		{"id":"566c5cb9537e7303","type":"text","text":"Arte: Desenho Digital","x":-511,"y":-60,"width":331,"height":60},
+		{"id":"db05defbcb3d931b","type":"text","text":"Ambiente: Medieval","x":-511,"y":20,"width":331,"height":60},
+		{"id":"15df77183eb852ac","x":-511,"y":100,"width":331,"height":60,"type":"text","text":"Tema: "}
+	],
+	"edges":[]
+}
