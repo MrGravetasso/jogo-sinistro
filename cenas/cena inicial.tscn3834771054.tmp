@@ -17,6 +17,7 @@ gradient = SubResource("Gradient_43gem")
 position = Vector2(390, 508)
 
 [node name="Camera2D" parent="player" unique_id=1682104215 instance=ExtResource("2_mi7qs")]
+script = null
 
 [node name="bordas" type="Node2D" parent="." unique_id=288913785]
 
