@@ -11,6 +11,14 @@ size = Vector2(285.281, 67.9348)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_h7fdw"]
 gradient = SubResource("Gradient_43gem")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afle1"]
+size = Vector2(745, 95)
+
+[sub_resource type="Gradient" id="Gradient_mi7qs"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_05xvm"]
+gradient = SubResource("Gradient_mi7qs")
+
 [node name="cena" type="Node2D" unique_id=1524670115]
 
 [node name="player" parent="." unique_id=79764328 instance=ExtResource("1_43gem")]
@@ -32,3 +40,14 @@ shape = SubResource("RectangleShape2D_ps246")
 position = Vector2(0, 44.49997)
 scale = Vector2(179.5, 125.00002)
 texture = SubResource("GradientTexture1D_h7fdw")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="bordas" unique_id=1465652383]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bordas/CharacterBody2D" unique_id=1155015639]
+position = Vector2(904, 569)
+shape = SubResource("RectangleShape2D_afle1")
+
+[node name="Sprite2D" type="Sprite2D" parent="bordas/CharacterBody2D" unique_id=798557961]
+position = Vector2(905.5, 569.5)
+scale = Vector2(2.8867188, 96.99998)
+texture = SubResource("GradientTexture1D_05xvm")
