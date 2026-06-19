@@ -161,19 +161,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afle1"]
-size = Vector2(59, 129)
+size = Vector2(96, 133)
 
-[node name="player" type="CharacterBody2D" unique_id=79764328]
+[node name="Jogador" type="CharacterBody2D" unique_id=79764328]
 collision_mask = 30
 script = ExtResource("1_lnvut")
 
 [node name="animaçao" type="AnimatedSprite2D" parent="." unique_id=466694439]
 texture_filter = 1
-position = Vector2(0, 270)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ps246")
-animation = &"andando"
+animation = &"parado"
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=298754196]
-position = Vector2(-4, 277)
+position = Vector2(3, 6.5)
 shape = SubResource("RectangleShape2D_afle1")

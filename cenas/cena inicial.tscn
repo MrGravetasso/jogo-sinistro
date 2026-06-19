@@ -19,52 +19,52 @@ size = Vector2(745, 95)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_05xvm"]
 gradient = SubResource("Gradient_mi7qs")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsk7u"]
+size = Vector2(745, 95)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi7qs"]
-size = Vector2(567, 204)
+size = Vector2(559, 213)
 
 [sub_resource type="Gradient" id="Gradient_lsk7u"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_tcxtd"]
 gradient = SubResource("Gradient_lsk7u")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcxtd"]
+size = Vector2(578, 223)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y80xa"]
+size = Vector2(780, 120)
+
 [node name="cena" type="Node2D" unique_id=1524670115]
 
-[node name="player" parent="." unique_id=79764328 instance=ExtResource("1_43gem")]
-position = Vector2(393, 315)
+[node name="Jogador" parent="." unique_id=79764328 instance=ExtResource("1_43gem")]
+position = Vector2(1334, 1362)
 
-[node name="Camera2D" parent="player" unique_id=1682104215 instance=ExtResource("2_mi7qs")]
+[node name="Camera" parent="Jogador" unique_id=1682104215 instance=ExtResource("2_mi7qs")]
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 1800
 
 [node name="bordas" type="Node2D" parent="." unique_id=288913785]
+position = Vector2(9, 508)
 
 [node name="chao" type="CharacterBody2D" parent="bordas" unique_id=1337899511]
-position = Vector2(572, 636)
+position = Vector2(1323, 1040)
 collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordas/chao" unique_id=1669372571]
-position = Vector2(-4, 44.5)
 scale = Vector2(161.56001, 1.8399999)
 shape = SubResource("RectangleShape2D_ps246")
 
 [node name="Sprite2D" type="Sprite2D" parent="bordas/chao" unique_id=65271858]
-position = Vector2(0, 44.49997)
 scale = Vector2(179.5, 125.00002)
 texture = SubResource("GradientTexture1D_h7fdw")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="bordas" unique_id=1465652383]
-position = Vector2(-163, -125)
-collision_layer = 4
-collision_mask = 11
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bordas/CharacterBody2D" unique_id=1155015639]
-shape = SubResource("RectangleShape2D_afle1")
-
-[node name="Sprite2D" type="Sprite2D" parent="bordas/CharacterBody2D" unique_id=798557961]
-scale = Vector2(2.8867188, 96.99998)
-texture = SubResource("GradientTexture1D_05xvm")
-
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="bordas" unique_id=905934204]
-position = Vector2(1404, 580)
+position = Vector2(2151, 997)
 collision_layer = 4
 collision_mask = 11
 
@@ -76,41 +76,52 @@ scale = Vector2(2.8867188, 96.99998)
 texture = SubResource("GradientTexture1D_05xvm")
 
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="bordas" unique_id=376947312]
-position = Vector2(1215, -172)
+position = Vector2(1962, 245)
 collision_layer = 4
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordas/CharacterBody2D3" unique_id=995982171]
-shape = SubResource("RectangleShape2D_afle1")
+shape = SubResource("RectangleShape2D_lsk7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="bordas/CharacterBody2D3" unique_id=673695538]
 scale = Vector2(2.8867188, 96.99998)
 texture = SubResource("GradientTexture1D_05xvm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="bordas" unique_id=1222896030]
-position = Vector2(533, 242)
+position = Vector2(1280, 659)
 collision_layer = 4
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordas/StaticBody2D" unique_id=1070280402]
-position = Vector2(-1, -3)
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_mi7qs")
 
 [node name="Sprite2D" type="Sprite2D" parent="bordas/StaticBody2D" unique_id=319654509]
-position = Vector2(1.4999895, 3.000008)
 scale = Vector2(2.1835935, 212)
 texture = SubResource("GradientTexture1D_tcxtd")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="bordas" unique_id=763381937]
-position = Vector2(-331, 449)
+position = Vector2(416, 866)
 collision_layer = 4
 collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bordas/StaticBody2D2" unique_id=1866277495]
-position = Vector2(-1, -3)
-shape = SubResource("RectangleShape2D_mi7qs")
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_tcxtd")
 
 [node name="Sprite2D" type="Sprite2D" parent="bordas/StaticBody2D2" unique_id=1435349840]
-position = Vector2(2.499977, 8.750017)
 scale = Vector2(2.2539063, 225.49997)
+texture = SubResource("GradientTexture1D_tcxtd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="bordas" unique_id=1366668158]
+position = Vector2(626, 256)
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bordas/StaticBody2D3" unique_id=367390877]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_y80xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="bordas/StaticBody2D3" unique_id=1965566955]
+scale = Vector2(3.0703125, 118.999985)
 texture = SubResource("GradientTexture1D_tcxtd")

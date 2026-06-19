@@ -1,25 +1,32 @@
 extends CharacterBody2D
 @onready var animacao: AnimatedSprite2D = $animaçao
 
-
-var SPEED = 30000.0
-var JUMP_VELOCITY = -800.0
-var velocidade_queda = Vector2(0, 75)
-var altura_inicio = 0
+# Forças
+var SPEED = 800.0
+var velocidade_queda = 2200
+# Pulo Normal
+var pulo_forca = -800.0
 var estado = 0 # 0 - Parado; 1 - Subindo; 2 - Caindo;
 var pulo_tempo = 0
 var pulo_max = 0.35
-
+# Pulo do Coiote
+var coiote = 0.0
+const COIOTE_TEMPO = 0.1
 
 func _physics_process(delta: float) -> void:
 #Gravidade
 	# Movimentar
-	mover(delta)
+	mover()
 	
+	# Resetar ou decrementar o tempo do coiote
+	if estado != 0:
+		coiote -= delta
+	else:
+		coiote = COIOTE_TEMPO
 	# Pular ao estar no chão
-	if estado == 0 and Input.is_action_pressed("pulo"):
+	if coiote > 0 and Input.is_action_pressed("pulo"):
 		estado = 2
-		altura_inicio = position.y
+		coiote = 0
 	# Manipulador de estados no ar
 	if not is_on_floor():
 		if estado == 0 and estado != 1:
@@ -30,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	# Estados no ar
 	match estado:
 		1:
-			velocity += velocidade_queda
+			velocity.y += velocidade_queda * delta
 			animacao.play("caindo")
 		2:
 			pular(delta)
@@ -38,12 +45,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func mover(delta):
+func mover():
 
 	# Vai para os lados
 	var direction := Input.get_axis("esquerda", "direita")
 	if direction:
-		velocity.x = direction * SPEED * delta
+		velocity.x = direction * SPEED 
 	else:
 		velocity.x = 0
 
@@ -61,19 +68,19 @@ func mover(delta):
 func pular2():
 	var pulin = Input.is_action_pressed("pulo")
 	if pulin:
-			velocity.y = JUMP_VELOCITY
-			JUMP_VELOCITY += 30
+			velocity.y = pulo_forca
+			pulo_forca += 30
 	elif is_on_floor():
-		JUMP_VELOCITY = -700.0
+		pulo_forca = -700.0
 	else:
 		return
 
 func pular(delta):
 	if not is_on_ceiling() and Input.is_action_pressed("pulo") and not pulo_tempo >= pulo_max:
 		pulo_tempo += delta
-		velocity.y = JUMP_VELOCITY
+		velocity.y = pulo_forca
 	else:
-		velocity.y = JUMP_VELOCITY * ((1/pulo_max) * pulo_tempo)
+		velocity.y = pulo_forca * ((1/pulo_max) * pulo_tempo)
 		estado = 1
 		
 		pulo_tempo = 0
