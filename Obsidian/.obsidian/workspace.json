@@ -15,8 +15,8 @@
               "state": {
                 "file": "Escopo.canvas",
                 "viewState": {
-                  "x": -46,
-                  "y": 88,
+                  "x": -130,
+                  "y": -70,
                   "zoom": 0
                 }
               },
@@ -186,10 +186,12 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "2d80802e86415600",
+  "active": "df5df3de602810a7",
   "lastOpenFiles": [
-    "Sem título.md",
+    "Sem título.canvas",
     "Escopo.canvas",
+    "Sem título",
+    "Sem título.md",
     "Sem título.base"
   ]
 }

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Jogo novo com o graveto"
 run/main_scene="uid://c52qx2rv40fg2"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://imagens/icon.svg"
 
 [input]
