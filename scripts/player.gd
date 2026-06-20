@@ -14,10 +14,10 @@ var coiote = 0.0
 const COIOTE_TEMPO = 0.1
 
 func _physics_process(delta: float) -> void:
-#Gravidade
 	# Movimentar
 	mover()
 	
+	## PULO
 	# Resetar ou decrementar o tempo do coiote
 	if estado != 0:
 		coiote -= delta
@@ -27,13 +27,13 @@ func _physics_process(delta: float) -> void:
 	if coiote > 0 and Input.is_action_pressed("pulo"):
 		estado = 2
 		coiote = 0
+		
 	# Manipulador de estados no ar
 	if not is_on_floor():
 		if estado == 0 and estado != 1:
 			estado = 1
 	elif estado != 2:
 		estado = 0
-		
 	# Estados no ar
 	match estado:
 		1:
@@ -45,15 +45,16 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func mover():
-
+## Função para a movimentação lateral do jogador
+func mover() -> void:
 	# Vai para os lados
 	var direction := Input.get_axis("esquerda", "direita")
 	if direction:
 		velocity.x = direction * SPEED 
 	else:
 		velocity.x = 0
-
+	
+	# Ativa a animação do jogador conforme as condições
 	if velocity.x == 0:
 		animacao.play("parado")
 	elif velocity.x != 0:
@@ -65,17 +66,20 @@ func mover():
 	elif velocity.x < 0:
 		animacao.flip_h = true
 
-func pular2():
-	var pulin = Input.is_action_pressed("pulo")
-	if pulin:
-			velocity.y = pulo_forca
-			pulo_forca += 30
-	elif is_on_floor():
-		pulo_forca = -700.0
-	else:
-		return
+# INFO código não utilizado
+#func pular2():
+	#var pulin = Input.is_action_pressed("pulo")
+	#if pulin:
+			#velocity.y = pulo_forca
+			#pulo_forca += 30
+	#elif is_on_floor():
+		#pulo_forca = -700.0
+	#else:
+		#return
 
-func pular(delta):
+## Função para o jogador pular
+func pular(delta) -> void: 
+
 	if not is_on_ceiling() and Input.is_action_pressed("pulo") and not pulo_tempo >= pulo_max:
 		pulo_tempo += delta
 		velocity.y = pulo_forca
